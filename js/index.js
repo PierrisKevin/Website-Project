@@ -1,9 +1,19 @@
 const homeText = document.querySelector("#home img:nth-child(2)")
 const falcon = document.querySelector("#home img:nth-child(1)")
 const ours = document.querySelector("#home img:nth-child(4)")
-const allImageInArticle = document.querySelectorAll(".menu img")
+const allImageInArticle = document.querySelectorAll(".menu .articles")
+
+
 
 const transValue = 80
+function putImage(n=0){
+    if(n<3){
+        allImageInArticle[n].style.transform = "translateY(0)"
+        setTimeout(()=>{
+            putImage(n+1)
+        },300)
+    }
+}
 
 gsap.to(homeText, {
     scrollTrigger : {
@@ -30,11 +40,15 @@ gsap.to(allImageInArticle, {
     scrollTrigger : {
         scrub : true,
         // once : true,
-
-        // start : "top bottom",
+        onEnter : ()=>{
+            console.log("Entrer...")
+            putImage()
+        },
+        start : "center 80%",
         // end : "center center"
     },
-
-    stagger : 0.4,
-    y : 0
+    
+    // onComplete : ()=>{
+    //     console.log("Animation completed")
+    // },
 })

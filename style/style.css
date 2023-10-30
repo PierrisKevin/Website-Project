@@ -12,7 +12,10 @@ body{
     position: relative;
     width: 100%;
     height: 100vh;
-    /* margin-bottom : 10%; */
+    /* Put image background here cause i'vn't even download there */
+    background-image: url(""); 
+    background-attachment: fixed;
+    background-position: center;
     overflow: hidden;
 }
 #home img{
@@ -47,6 +50,7 @@ body{
     z-index: 3;
 } 
 
+/* Une partie concernan le style de l'article  */
 
 .menu{
     display: flex;
@@ -54,11 +58,77 @@ body{
     height: 100vh;
     overflow: hidden;
 }
-.menu img{
+.menu .articles{
+    position: relative;
     width: 34%;
-    /* transition: .6s; */
+    transition: .8s;
     transform: translateY(-100%);
 }
+.menu .articles .overlay-articles{
+    position: absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height: 100%;
+    background: #10005080;
+    transition: .6s;
+    z-index: 2;
+    opacity: 0;
+}
+.menu .articles:hover .overlay-articles{
+    opacity: 1;
+}
+.menu .articles .informations{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    /* padding: 0 2%; */
+    gap : 25px;
+    bottom : 0;
+    width : 100%;
+    height: 50%;
+    opacity: 0;
+    transition: .4s;
+    z-index: 3;
+}
+.menu .articles:hover .informations{
+    opacity: 1;
+}
+.menu .articles .informations h1{
+    font-size: 2em;
+    margin-left: 5%;
+    color : #fff;
+    transition: .8s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.menu .articles:hover .informations h1{
+    opacity: 1;
+    transform: translateY(0);
+
+}
+.menu .articles .informations hr{
+    width: 0;
+    height: 5px;
+    background: rgb(174, 0, 0);
+    transition: .9s;
+    border: none;
+}
+.menu .articles:hover .informations hr{
+    width: 50%;
+}
+.menu .articles .informations .textInfo{
+    align-self: center;
+    width : 70%;
+    color: #d2d2d2;
+}
+.menu .articles img{
+    width : 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* partie en dernier avec l'image */
 
 .footer{
     display: flex;
@@ -69,4 +139,29 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+
+/* Partie responsivite  */
+@media (max-width : 950px){
+    #home img:nth-child(1){
+        height: 100%;
+        width: 60%;
+        /* bottom: -15%; */
+    }
+    #home img:nth-child(4){
+        height: 100%;
+        width: 45%;
+        bottom: 0;
+    } 
+}
+
+@media (max-width : 650px){
+    #home img:nth-child(1),#home img:nth-child(4){
+        display: none;
+    }
+    #home img:nth-child(3){
+        height : 50%;
+    }
+    
 }
