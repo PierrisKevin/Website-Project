@@ -1,0 +1,196 @@
+*, body{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: #111111;
+}
+
+#home{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Put image background here cause i'vn't even download there */
+    background-image: url(""); 
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+}
+#home img{
+    position: absolute;
+    object-fit: contain;
+    /* width: 100%; */
+    height: 100%;
+}
+#home img:nth-child(1){
+    top : 0;
+    left : 0;
+    z-index: 2;
+}
+ #home img:nth-child(4){
+    top : 0;
+    right : 0;
+    z-index: 2;
+}
+#home img:nth-child(2),#home img:nth-child(3){
+    transform: translateX(-50%);
+    left : 50%;
+}
+#home img:nth-child(2){
+    width: 40%;
+    height: 40%;
+    top : 5%;
+    /* z-index: 5; */
+}
+#home img:nth-child(3){
+    height: 70%;
+    bottom : 0;
+    z-index: 3;
+} 
+
+/* Une partie concernan le style de l'article  */
+
+.menu{
+    display: flex;
+    width : 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.menu .articles{
+    position: relative;
+    width: 34%;
+    transition: .8s;
+    transform: translateY(-100%);
+    /* animation : defiler 1s ease-in-out forwards; */
+}
+.menu .articles .overlay-articles{
+    position: absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height: 100%;
+    background: #10005080;
+    transition: .6s;
+    z-index: 2;
+    opacity: 0;
+}
+.menu .articles:hover .overlay-articles{
+    opacity: 1;
+}
+.menu .articles .informations{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    /* padding: 0 2%; */
+    gap : 25px;
+    bottom : 0;
+    width : 100%;
+    height: 50%;
+    opacity: 0;
+    transition: .4s;
+    z-index: 3;
+}
+.menu .articles:hover .informations{
+    opacity: 1;
+}
+.menu .articles .informations h1{
+    font-size: 2em;
+    margin-left: 5%;
+    color : #fff;
+    transition: .8s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.menu .articles:hover .informations h1{
+    opacity: 1;
+    transform: translateY(0);
+
+}
+.menu .articles .informations hr{
+    width: 0;
+    height: 5px;
+    background: rgb(174, 0, 0);
+    transition: .9s;
+    border: none;
+}
+.menu .articles:hover .informations hr{
+    width: 50%;
+}
+.menu .articles .informations .textInfo{
+    align-self: center;
+    width : 70%;
+    color: #d2d2d2;
+}
+.menu .articles img{
+    width : 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* partie en dernier avec l'image */
+
+.footer{
+    display: flex;
+    width : 100%;
+    height: 100vh;
+}
+.footer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Partie style des conversation (dernier partie) */
+#conversations .conv-img{
+    display: flex;
+    width: 100%;
+    height: 70vh;
+    gap : 20px;
+    overflow: hidden;
+}
+#conversations .conv-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* #conversations .conv-img img:nth-child(1){
+    transform: translateX(-120px);
+}
+#conversations .conv-img img:nth-child(2){
+    transform: translateX(170px);
+} */
+
+
+/* Partie responsivite  */
+@media (max-width : 950px){
+    #home img:nth-child(1){
+        height: 100%;
+        width: 60%;
+        /* bottom: -15%; */
+    }
+    #home img:nth-child(4){
+        height: 100%;
+        width: 45%;
+        bottom: 0;
+    } 
+}
+
+@media (max-width : 650px){
+    #home img:nth-child(1),#home img:nth-child(4){
+        display: none;
+    }
+    #home img:nth-child(3){
+        height : 50%;
+    }
+    
+}
+
+@keyframes defiler {
+    to{
+        transform: translateY(0);
+    }
+}
