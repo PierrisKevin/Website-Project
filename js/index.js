@@ -52,3 +52,34 @@ gsap.to(allImageInArticle, {
     //     console.log("Animation completed")
     // },
 })
+
+
+// La partie pour chaque personnage qui se regarde
+
+const allConvContain = document.querySelectorAll(".conv-img")
+allConvContain.forEach((convContain)=>{
+    const allChild = convContain.children
+    for(let i=0;i<allChild.length;i++){
+        gsap.to(allChild[i], {
+            scrollTrigger : {
+                scrub : 1,
+            },
+            x : 0
+        })
+    }
+})
+
+
+// Ce fonction prend en parametre le nombre de paire d'image
+function LoadImage(n=6){
+    const elemet = document.querySelector("#conversations")
+    for(let i=0;i<n;i++){
+        elemet.innerHTML+=`
+        <div class="conv-img">
+            <img src="./assets/images/${i}-1.png">
+            <img src="./assets/images/${i}-2.png">
+        </div>
+        `
+    }
+}
+LoadImage()
