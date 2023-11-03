@@ -65,7 +65,7 @@ gsap.to(allImageInArticle, {
 const allConvContain = document.querySelectorAll(".conv-img")
 allConvContain.forEach((convContain)=>{
     const allChild = convContain.children
-    for(let i=0;i<allChild.length;i++){
+    for(let i=1;i<allChild.length;i++){
         gsap.to(allChild[i], {
             scrollTrigger : {
                 scrub : 1,
@@ -88,4 +88,4 @@ function LoadImage(n=6){
         `
     }
 }
-LoadImage()
+LoadImage(21)

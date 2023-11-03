@@ -97,6 +97,7 @@ body{
 }
 .menu .articles .informations h1{
     font-size: 2em;
+    text-transform: uppercase;
     margin-left: 5%;
     color : #fff;
     transition: .8s;
