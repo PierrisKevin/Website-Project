@@ -3,7 +3,7 @@ const falcon = document.querySelector("#home img:nth-child(1)")
 const ours = document.querySelector("#home img:nth-child(4)")
 const allImageInArticle = document.querySelectorAll(".menu .articles")
 
-
+AOS.init();
 
 const transValue = 80
 function putImage(n=0){
@@ -79,11 +79,11 @@ allConvContain.forEach((convContain)=>{
 // Ce fonction prend en parametre le nombre de paire d'image
 function LoadImage(n=6){
     const elemet = document.querySelector("#conversations")
-    for(let i=0;i<n;i++){
+    for(let i=1;i<n;i++){
         elemet.innerHTML+=`
         <div class="conv-img">
-            <img src="./assets/images/${i}-1.png">
-            <img src="./assets/images/${i}-2.png">
+            <img src="./assets/images/${i}-1.png" data-aos="fade-right">
+            <img src="./assets/images/${i}-2.png" data-aos="fade-left">
         </div>
         `
     }
