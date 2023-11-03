@@ -25,7 +25,12 @@ gsap.to(homeText, {
 
 gsap.to(falcon, {
     scrollTrigger : {
-        scrub : 1
+        trigger : falcon,
+        scrub : 1,
+        onLeave : ()=>{
+            putImage()
+
+        }
     },
     x : -transValue
 })
@@ -38,13 +43,14 @@ gsap.to(ours, {
 
 gsap.to(allImageInArticle, {
     scrollTrigger : {
+        trigger : allImageInArticle,
         scrub : true,
         // once : true,
         onEnter : ()=>{
-            console.log("Entrer...")
-            putImage()
+            console.log("Element visible...")
+            // putImage()
         },
-        start : "center 80%",
+        start : "top 80%",
         // end : "center center"
     },
     

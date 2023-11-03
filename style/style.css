@@ -63,6 +63,7 @@ body{
     width: 34%;
     transition: .8s;
     transform: translateY(-100%);
+    /* animation : defiler 1s ease-in-out forwards; */
 }
 .menu .articles .overlay-articles{
     position: absolute;
@@ -186,4 +187,10 @@ body{
         height : 50%;
     }
     
+}
+
+@keyframes defiler {
+    to{
+        transform: translateY(0);
+    }
 }
